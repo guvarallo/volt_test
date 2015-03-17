@@ -8,6 +8,15 @@ class MainController < Volt::ModelController
     # Add code for when the about view is loaded
   end
 
+  def add_todo
+    page._todos << { name: page._new_todo }
+    page._new_todo = ''
+  end
+
+  def remove_todo(todo)
+    page._todos.delete(todo)
+  end
+
   private
 
   # The main template contains a #template binding that shows another
